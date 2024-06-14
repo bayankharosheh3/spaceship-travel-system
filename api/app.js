@@ -1,9 +1,12 @@
 const express = require("express");
 const config = require("./config/config");
+const { spaceshipRoutes } = require("./routes");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use("/api", spaceshipRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

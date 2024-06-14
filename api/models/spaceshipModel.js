@@ -45,7 +45,6 @@ const Spaceship = sequelize.define(
     },
   },
   {
-    freezeTableName: true,
     timestamps: false,
   }
 );
