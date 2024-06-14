@@ -22,7 +22,7 @@ CREATE TABLE Missions (
     MissionID INT AUTO_INCREMENT PRIMARY KEY,
     SpaceshipID INT NOT NULL,
     Destination VARCHAR(100) NOT NULL,  
-    LaunchDate DATE DEFAULT NULL,  
+    LaunchDate DATE NOT NULL,  
     Duration INT NOT NULL,
     FOREIGN KEY (SpaceshipID) REFERENCES Spaceships(SpaceshipID)
 );
