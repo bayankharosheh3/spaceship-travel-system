@@ -1,6 +1,12 @@
 const express = require("express");
 const config = require("./config/config");
-const { spaceshipRoutes, missionRoutes } = require("./routes");
+
+const {
+  spaceshipRoutes,
+  missionRoutes,
+  crewMemberRoutes,
+} = require("./routes");
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -8,6 +14,7 @@ app.use(express.json());
 
 app.use("/api", spaceshipRoutes);
 app.use("/api", missionRoutes);
+app.use("/api", crewMemberRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
