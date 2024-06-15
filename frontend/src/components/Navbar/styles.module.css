@@ -1,0 +1,103 @@
+.navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarContainer {
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.navbarLogo {
+  color: #fff;
+  font-size: 1.2rem;
+  width: 20%;
+}
+
+.navMenu {
+  display: flex;
+  list-style: none;
+  width: 80%;
+}
+
+.navItem {
+  margin-right: 15px;
+}
+
+.navLinks {
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease-out;
+}
+
+.navLinks:hover {
+  color: #ffcc00;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+  width: 25px;
+}
+
+.line {
+  height: 3px;
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  .navbarLogo {
+    width: 15%;
+    margin-right: 20px;
+  }
+
+  .navMenu {
+    flex-direction: column;
+    align-items: start;
+    display: none;
+    margin-left: 30px;
+  }
+
+  .navMenu.active {
+    display: flex;
+  }
+
+  .navItem {
+    margin: 10px 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbarLogo {
+    margin-right: 0px;
+  }
+  .navMenu {
+    width: 60%;
+  }
+  .navbarLogo {
+    width: 40%;
+  }
+  .navbarLogo {
+    font-size: 1.2rem;
+  }
+
+  .navLinks {
+    font-size: 1rem;
+  }
+}
