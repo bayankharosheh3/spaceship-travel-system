@@ -1,7 +1,6 @@
-// Navbar.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './styles.module.css'; // Import the CSS module
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import styles from "./styles.module.css"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +16,15 @@ const Navbar = () => {
           ST System
         </Link>
         <div className={styles.burger} onClick={handleToggle}>
-          <div className={isOpen ? `${styles.line}` : styles.line}></div>
-          <div className={isOpen ? `${styles.line}` : styles.line}></div>
-          <div className={isOpen ? `${styles.line}` : styles.line}></div>
+          <div className={styles.line}></div>
+          <div className={styles.line}></div>
+          <div className={styles.line}></div>
         </div>
-        <ul className={isOpen ? `${styles.navMenu} ${styles.active}` : styles.navMenu}>
+        <ul
+          className={
+            isOpen ? `${styles.navMenu} ${styles.active}` : styles.navMenu
+          }
+        >
           <li className={styles.navItem}>
             <Link to="/" className={styles.navLinks}>
               Spaceships

@@ -1,0 +1,15 @@
+.btn {
+  margin: 10px 0px 20px 0px;
+  width: fit-content;
+  padding: 8px 16px;
+  text-align: center;
+  color: #fff;
+  background-color: #ffcc00;
+  border: 0;
+  border-radius: 4px;
+  height: 40px;
+  font-family: "Josefin Sans", sans-serif;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}

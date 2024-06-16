@@ -1,0 +1,22 @@
+.form {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.btnContainer{
+  width: 100%;
+  text-align: end;
+}
+
+.error {
+  color: red;
+  display: block;
+  font-size: 15px;
+  margin: 5px 0px 10px;
+}
+
+@media (max-width: 370px) {
+  .error {
+    font-size: 13px;
+  }
+}

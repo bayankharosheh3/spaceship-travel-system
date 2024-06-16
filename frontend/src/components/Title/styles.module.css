@@ -1,0 +1,20 @@
+.title {
+  margin: 15px 0px;
+  font-family: "Satisfy", cursive;
+  font-size: 40px;
+  color: #ffcc00;
+  border-bottom: #333 solid 2px;
+  width: fit-content;
+}
+
+@media (max-width: 567px) {
+  .title {
+   text-align: center;
+   width: 100%;
+  }
+}
+@media (max-width: 370px) {
+  .title {
+    font-size: 48px;
+  }
+}

@@ -1,5 +1,6 @@
 const express = require("express");
 const config = require("./config/config");
+const cors = require('cors');
 
 const {
   spaceshipRoutes,
@@ -9,6 +10,7 @@ const {
 
 const app = express();
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
