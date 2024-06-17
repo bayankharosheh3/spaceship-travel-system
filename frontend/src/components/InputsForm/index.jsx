@@ -45,7 +45,7 @@ const InputsForm = ({ fields, endpoint, buttonText, onSuccess }) => {
       ))}
       {error && <span className={styles.error}>{error}</span>}
       <div className={styles.btnContainer}>
-        <Button type="submit" text={buttonText} />{" "}
+        <Button type="submit" text={buttonText} />
       </div>
     </form>
   );

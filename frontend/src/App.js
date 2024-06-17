@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import CrewMembers from "./pages/CrewMembersPage";
-import Missions from "./pages/Missions";
-import Spaceships from "./pages/Spaceships";
+import Missions from "./pages/MissionsPage";
+import Spaceships from "./pages/SpaceshipsPage";
 import NotFound from "./pages/NotFound";
 import { Layout } from "./components/Layout";
 

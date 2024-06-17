@@ -31,17 +31,6 @@ const Table = ({ columns, data, onEdit, onDelete }) => {
     setCurrentPage(pageNumber);
   };
 
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < Math.ceil(data.length / rowsPerPage)) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
 
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
