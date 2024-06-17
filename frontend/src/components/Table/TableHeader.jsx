@@ -4,7 +4,7 @@ const TableHeader = ({ columns }) => (
   <thead>
     <tr>
       {columns.map((column) => (
-        <th key={column}>{column}</th>
+        <th key={column.name}>{column.name}</th>
       ))}
       <th>Actions</th>
     </tr>

@@ -1,64 +1,35 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import InputsForm from "../components/InputsForm";
 import Title from "../components/Title";
-import Table from "../components/Table";
-import SearchBar from "../components/SearchBar";
 import { fields, endpoint, columns } from "../constants/crewMemberForm";
+import SearchBar from "../components/SearchBar";
+import Table from "../components/Table";
+import { fetchItems, editItem, deleteItem, searchItems } from "../Utils/apiUtils";
 
 const CrewMembersPage = () => {
   const [crewMembers, setCrewMembers] = useState([]);
   const [filteredCrewMembers, setFilteredCrewMembers] = useState([]);
 
   const handleSuccess = (data) => {
-    window.confirm("New Member Added");
+    window.confirm("New Crew Member Added");
     console.log("Crew member added successfully:", data);
     fetchCrewMembers();
   };
 
   const fetchCrewMembers = () => {
-    axios
-      .get(endpoint)
-      .then((response) => {
-        setCrewMembers(response.data.data);
-        setFilteredCrewMembers(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching crew members data:", error);
-      });
+    fetchItems(endpoint, setCrewMembers, setFilteredCrewMembers);
   };
 
   const handleEdit = (updatedRow) => {
-    axios
-      .put(`${endpoint}/${updatedRow.CrewMemberID}`, updatedRow)
-      .then(() => {
-        fetchCrewMembers();
-      })
-      .catch((error) => {
-        console.error("Error updating crew member data:", error);
-      });
+    editItem(endpoint, updatedRow.CrewMemberID, updatedRow, fetchCrewMembers);
   };
 
   const handleDelete = (rowToDelete) => {
-    axios
-      .delete(`${endpoint}/${rowToDelete.CrewMemberID}`)
-      .then(() => {
-        fetchCrewMembers();
-      })
-      .catch((error) => {
-        console.error("Error deleting crew member data:", error);
-      });
+    deleteItem(endpoint, rowToDelete.CrewMemberID, fetchCrewMembers);
   };
 
   const handleSearch = (term) => {
-    const filtered = crewMembers.filter(
-      (member) =>
-        member.Name.toLowerCase().includes(term.toLowerCase()) ||
-        member.Role.toLowerCase().includes(term.toLowerCase()) ||
-        member.ExperienceLevel.toString().includes(term.toLowerCase()) ||
-        member.AssignedSpaceshipID.toString().includes(term.toLowerCase())
-    );
-    setFilteredCrewMembers(filtered);
+    searchItems(crewMembers, term, setFilteredCrewMembers);
   };
 
   useEffect(() => {
@@ -66,7 +37,7 @@ const CrewMembersPage = () => {
   }, []);
 
   return (
-    <div className={"container"}>
+    <div className="container">
       <Title text={"Add New Crew Member"} />
       <InputsForm
         fields={fields}

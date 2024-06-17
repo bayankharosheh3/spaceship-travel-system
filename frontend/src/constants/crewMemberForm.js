@@ -32,9 +32,21 @@ export const fields = [
 export const endpoint = "http://localhost:5000/api/crewmembers";
 
 export const columns = [
-  "CrewMemberID",
-  "Name",
-  "Role",
-  "ExperienceLevel",
-  "AssignedSpaceshipID",
+  {
+    name: "CrewMemberID",
+    type: "text",
+    placeholder: "Crew Member ID",
+  },
+  { name: "Name", type: "text", placeholder: "Enter Name" },
+  { name: "Role", type: "text", placeholder: "Enter Role" },
+  {
+    name: "ExperienceLevel",
+    type: "select",
+    options: ["Beginner", "Intermediate", "Advanced"],
+  },
+  {
+    name: "AssignedSpaceshipID",
+    type: "number",
+    placeholder: "Enter Assigned Spaceship ID",
+  },
 ];

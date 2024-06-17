@@ -1,64 +1,35 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import InputsForm from "../components/InputsForm";
 import Title from "../components/Title";
 import { fields, endpoint, columns } from "../constants/spaceshipForm";
 import SearchBar from "../components/SearchBar";
 import Table from "../components/Table";
+import { fetchItems, editItem, deleteItem, searchItems } from "../Utils/apiUtils";
 
 const SpaceshipsPage = () => {
   const [spaceships, setSpaceships] = useState([]);
   const [filteredSpaceships, setFilteredSpaceships] = useState([]);
 
   const handleSuccess = (data) => {
-    window.confirm("New Member Added");
+    window.confirm("New Spaceship Added");
     console.log("Spaceship added successfully:", data);
     fetchSpaceships();
   };
 
   const fetchSpaceships = () => {
-    axios
-      .get(endpoint)
-      .then((response) => {
-        setSpaceships(response.data.data);
-        setFilteredSpaceships(response.data.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching spaceship data:", error);
-      });
+    fetchItems(endpoint, setSpaceships, setFilteredSpaceships);
   };
 
   const handleEdit = (updatedRow) => {
-    axios
-      .put(`${endpoint}/${updatedRow.SpaceshipID}`, updatedRow)
-      .then(() => {
-        fetchSpaceships();
-      })
-      .catch((error) => {
-        console.error("Error updating spaceship data:", error);
-      });
+    editItem(endpoint, updatedRow.SpaceshipID, updatedRow, fetchSpaceships);
   };
 
   const handleDelete = (rowToDelete) => {
-    axios
-      .delete(`${endpoint}/${rowToDelete.SpaceshipID}`)
-      .then(() => {
-        fetchSpaceships();
-      })
-      .catch((error) => {
-        console.error("Error deleting spaceShip data:", error);
-      });
+    deleteItem(endpoint, rowToDelete.SpaceshipID, fetchSpaceships);
   };
 
   const handleSearch = (term) => {
-    const filtered = spaceships.filter(
-      (member) =>
-        member.Name.toLowerCase().includes(term.toLowerCase()) ||
-        member.Role.toLowerCase().includes(term.toLowerCase()) ||
-        member.ExperienceLevel.toString().includes(term.toLowerCase()) ||
-        member.AssignedSpaceshipID.toString().includes(term.toLowerCase())
-    );
-    setFilteredSpaceships(filtered);
+    searchItems(spaceships, term, setFilteredSpaceships);
   };
 
   useEffect(() => {

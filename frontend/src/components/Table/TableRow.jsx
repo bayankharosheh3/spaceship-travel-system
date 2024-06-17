@@ -15,15 +15,26 @@ const TableRow = ({
 }) => (
   <tr>
     {columns.map((column) => (
-      <td key={column}>
-        {isEditing ? (
+      <td key={column.name}>
+        {isEditing && column.type === "select" ? (
+          <select
+            value={editRow[column.name]}
+            onChange={(e) => onEditChange(e, column.name)}
+          >
+            {column.options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        ) : isEditing ? (
           <input
-            type="text"
-            value={editRow[column]}
-            onChange={(e) => onEditChange(e, column)}
+            type={column.type}
+            value={editRow[column.name]}
+            onChange={(e) => onEditChange(e, column.name)}
           />
         ) : (
-          row[column]
+          row[column.name]
         )}
       </td>
     ))}

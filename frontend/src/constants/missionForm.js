@@ -29,12 +29,12 @@ export const fields = [
   },
 ];
 
-export const endpoint = "http://localhost:5000/api/missions";
-
 export const columns = [
-  "MissionID",
-  "SpaceshipID",
-  "Destination",
-  "LaunchDate",
-  "Duration",
+  { name: "MissionID", type: "text", placeholder: "Mission ID" },
+  { name: "SpaceshipID", type: "number", placeholder: "Spaceship ID" },
+  { name: "Destination", type: "select", options: ["Jupiter", "Mars", "Moon"] },
+  { name: "LaunchDate", type: "date", placeholder: "Launch Date" },
+  { name: "Duration", type: "number", placeholder: "Duration" },
 ];
+
+export const endpoint = "http://localhost:5000/api/missions";

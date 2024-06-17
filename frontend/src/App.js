@@ -1,10 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import CrewMembers from "./pages/CrewMembersPage";
-import Missions from "./pages/MissionsPage";
-import Spaceships from "./pages/SpaceshipsPage";
-import NotFound from "./pages/NotFound";
 import { Layout } from "./components/Layout";
+import {
+  SpaceshipsPage,
+  CrewMembersPage,
+  MissionsPage,
+  NotFoundPage,
+} from "./pages";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,22 +16,22 @@ function App() {
       children: [
         {
           index: true,
-          element: <Spaceships />,
+          element: <SpaceshipsPage />,
         },
 
         {
           path: "crew-members",
-          element: <CrewMembers />,
+          element: <CrewMembersPage />,
         },
         {
           path: "missions",
-          element: <Missions />,
+          element: <MissionsPage />,
         },
       ],
     },
     {
       path: "*",
-      element: <NotFound />,
+      element: <NotFoundPage />,
     },
   ]);
   return <RouterProvider router={router}></RouterProvider>;

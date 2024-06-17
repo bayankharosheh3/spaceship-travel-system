@@ -29,12 +29,12 @@ export const fields = [
   },
 ];
 
-export const endpoint = "http://localhost:5000/api/spaceships";
-
 export const columns = [
-  "SpaceshipID",
-  "Name",
-  "Capacity",
-  "LaunchDate",
-  "Status",
+  { name: "SpaceshipID", type: "text", placeholder: "Spaceship ID" },
+  { name: "Name", type: "text", placeholder: "Spaceship Name" },
+  { name: "Capacity", type: "number", placeholder: "Capacity" },
+  { name: "LaunchDate", type: "date", placeholder: "Launch Date" },
+  { name: "Status", type: "text", placeholder: "Status" },
 ];
+
+export const endpoint = "http://localhost:5000/api/spaceships";
