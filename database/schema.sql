@@ -13,7 +13,7 @@ CREATE TABLE CrewMembers (
     CrewMemberID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,  
     Role VARCHAR(100) NOT NULL,
-    ExperienceLevel INT NOT NULL,
+    ExperienceLevel ENUM('Beginner', 'Intermediate', 'Advanced') NOT NULL,
     AssignedSpaceshipID INT,
     FOREIGN KEY (AssignedSpaceshipID) REFERENCES Spaceships(SpaceshipID)
 );
@@ -21,7 +21,7 @@ CREATE TABLE CrewMembers (
 CREATE TABLE Missions (
     MissionID INT AUTO_INCREMENT PRIMARY KEY,
     SpaceshipID INT NOT NULL,
-    Destination VARCHAR(100) NOT NULL,  
+    Destination ENUM('Mars', 'Jupiter', 'Moon') NOT NULL,  
     LaunchDate DATE NOT NULL,  
     Duration INT NOT NULL,
     FOREIGN KEY (SpaceshipID) REFERENCES Spaceships(SpaceshipID)

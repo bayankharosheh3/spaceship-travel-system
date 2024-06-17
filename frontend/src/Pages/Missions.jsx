@@ -14,9 +14,9 @@ const AddMissionForm = () => {
     {
       id: "destination",
       label: "Destination",
-      type: "text",
+      type: "select",
       name: "Destination",
-      placeholder: "Enter Destination",
+      options: ["Jupiter", "Mars", "Moon"],
     },
     {
       id: "launchDate",

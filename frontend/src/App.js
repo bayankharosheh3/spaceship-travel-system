@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
-import CrewMembers from "./pages/CrewMembers";
+import CrewMembers from "./pages/CrewMembersPage";
 import Missions from "./pages/Missions";
 import Spaceships from "./pages/Spaceships";
 import NotFound from "./pages/NotFound";

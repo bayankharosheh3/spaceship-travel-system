@@ -16,10 +16,10 @@ const InputsForm = ({ fields, endpoint, buttonText, onSuccess }) => {
   const formik = useFormik({
     initialValues,
     onSubmit: async (values) => {
-      console.log(values);
       try {
         const response = await axios.post(endpoint, values);
-        if (response.status === 200) {
+        console.log(values,response.status);
+        if (response.status === 201) {
           onSuccess(response.data);
         }
       } catch (err) {
@@ -40,6 +40,7 @@ const InputsForm = ({ fields, endpoint, buttonText, onSuccess }) => {
           onChange={formik.handleChange}
           value={formik.values[field.name]}
           placeholder={field.placeholder}
+          options={field.options} 
         />
       ))}
       {error && <span className={styles.error}>{error}</span>}
