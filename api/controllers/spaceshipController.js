@@ -1,4 +1,4 @@
-const { Spaceship } = require("../models");
+const { Spaceship, CrewMember, Mission } = require("../models");
 
 const createSpaceship = async (req, res) => {
   try {
@@ -175,6 +175,15 @@ const partiallyUpdateSpaceship = async (req, res) => {
 const deleteSpaceship = async (req, res) => {
   try {
     const id = Number(req.params.id);
+
+    await CrewMember.update(
+      { AssignedSpaceshipID: null },
+      { where: { AssignedSpaceshipID: id } }
+    );
+
+    await Mission.destroy({
+      where: { SpaceshipID: id },
+    });
 
     const deletedRowCount = await Spaceship.destroy({
       where: { SpaceshipID: id },
